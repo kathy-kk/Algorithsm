@@ -5,7 +5,10 @@ const quickUnionUF = (n) => {
    const sz = new Array(n).fill(1);
 
    const root = (i) => {
-     while(i != id[i]) i = id[i];
+     while(i != id[i]) {
+       id[i] = id[id[i]];
+       i = id[i];
+      }
      return i
    } 
    const connected = (p, q) => {
